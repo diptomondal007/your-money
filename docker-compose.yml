@@ -1,0 +1,36 @@
+version: "3.6"
+services:
+  server:
+    container_name: api_server
+    build:
+      context: .
+    command:
+      - serve
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres_db
+      - DB_PORT=5432
+      - DB_USER=test
+      - DB_PASSWORD=password
+      - DB_NAME=your-money
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+
+  postgres:
+    container_name: postgres_db
+    image: postgres:9.6
+    command: ["postgres", "-c", "log_statement=all"]
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=your-money
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infrastructure/db/migrations/000001_create_basic_tables.up.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  postgres_data:
