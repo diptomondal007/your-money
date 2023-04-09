@@ -1,0 +1,144 @@
+# flyctl launch added from .gitignore
+# Binaries for programs and plugins
+**/*.exe
+**/*.exe~
+**/*.dll
+**/*.so
+**/*.dylib
+
+# Test binary, built with `go test -c`
+**/*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+**/*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+**/.idea
+**/.vscode
+
+# flyctl launch added from .idea/.gitignore
+# Default ignored files
+.idea/shelf
+.idea/workspace.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests
+# Datasource local storage ignored files
+.idea/dataSources
+.idea/dataSources.local.xml
+
+# flyctl launch added from vendor/github.com/DATA-DOG/go-sqlmock/.gitignore
+vendor/github.com/DATA-DOG/go-sqlmock/examples/blog/blog
+vendor/github.com/DATA-DOG/go-sqlmock/examples/orders/orders
+vendor/github.com/DATA-DOG/go-sqlmock/examples/basic/basic
+vendor/github.com/DATA-DOG/go-sqlmock/**/.idea
+
+# flyctl launch added from vendor/github.com/doug-martin/goqu/v9/.gitignore
+vendor/github.com/doug-martin/goqu/v9/**/.idea
+vendor/github.com/doug-martin/goqu/v9/**/src
+vendor/github.com/doug-martin/goqu/v9/**/*.iml
+vendor/github.com/doug-martin/goqu/v9/**/coverage.*
+
+# flyctl launch added from vendor/github.com/golang-jwt/jwt/.gitignore
+vendor/github.com/golang-jwt/jwt/**/.DS_Store
+vendor/github.com/golang-jwt/jwt/**/bin
+vendor/github.com/golang-jwt/jwt/**/.idea
+
+
+# flyctl launch added from vendor/github.com/jmoiron/sqlx/.gitignore
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+vendor/github.com/jmoiron/sqlx/**/*.o
+vendor/github.com/jmoiron/sqlx/**/*.a
+vendor/github.com/jmoiron/sqlx/**/*.so
+
+# Folders
+vendor/github.com/jmoiron/sqlx/**/_obj
+vendor/github.com/jmoiron/sqlx/**/_test
+vendor/github.com/jmoiron/sqlx/**/.idea
+
+# Architecture specific extensions/prefixes
+vendor/github.com/jmoiron/sqlx/**/*.[568vq]
+vendor/github.com/jmoiron/sqlx/**/[568vq].out
+
+vendor/github.com/jmoiron/sqlx/**/*.cgo1.go
+vendor/github.com/jmoiron/sqlx/**/*.cgo2.c
+vendor/github.com/jmoiron/sqlx/**/_cgo_defun.c
+vendor/github.com/jmoiron/sqlx/**/_cgo_gotypes.go
+vendor/github.com/jmoiron/sqlx/**/_cgo_export.*
+
+vendor/github.com/jmoiron/sqlx/**/_testmain.go
+
+vendor/github.com/jmoiron/sqlx/**/*.exe
+vendor/github.com/jmoiron/sqlx/**/tags
+vendor/github.com/jmoiron/sqlx/**/environ
+
+# flyctl launch added from vendor/github.com/labstack/echo/v4/.gitignore
+vendor/github.com/labstack/echo/v4/**/.DS_Store
+vendor/github.com/labstack/echo/v4/**/coverage.txt
+vendor/github.com/labstack/echo/v4/**/_test
+vendor/github.com/labstack/echo/v4/**/vendor
+vendor/github.com/labstack/echo/v4/**/.idea
+vendor/github.com/labstack/echo/v4/**/*.iml
+vendor/github.com/labstack/echo/v4/**/*.out
+vendor/github.com/labstack/echo/v4/**/.vscode
+
+# flyctl launch added from vendor/github.com/lib/pq/.gitignore
+vendor/github.com/lib/pq/**/.db
+vendor/github.com/lib/pq/**/*.test
+vendor/github.com/lib/pq/**/*~
+vendor/github.com/lib/pq/**/*.swp
+vendor/github.com/lib/pq/**/.idea
+vendor/github.com/lib/pq/**/.vscode
+
+# flyctl launch added from vendor/github.com/spf13/cobra/.gitignore
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+vendor/github.com/spf13/cobra/**/*.o
+vendor/github.com/spf13/cobra/**/*.a
+vendor/github.com/spf13/cobra/**/*.so
+
+# Folders
+vendor/github.com/spf13/cobra/**/_obj
+vendor/github.com/spf13/cobra/**/_test
+
+# Architecture specific extensions/prefixes
+vendor/github.com/spf13/cobra/**/*.[568vq]
+vendor/github.com/spf13/cobra/**/[568vq].out
+
+vendor/github.com/spf13/cobra/**/*.cgo1.go
+vendor/github.com/spf13/cobra/**/*.cgo2.c
+vendor/github.com/spf13/cobra/**/_cgo_defun.c
+vendor/github.com/spf13/cobra/**/_cgo_gotypes.go
+vendor/github.com/spf13/cobra/**/_cgo_export.*
+
+vendor/github.com/spf13/cobra/**/_testmain.go
+
+# Vim files https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
+# swap
+vendor/github.com/spf13/cobra/**/[._]*.s[a-w][a-z]
+vendor/github.com/spf13/cobra/**/[._]s[a-w][a-z]
+# session
+vendor/github.com/spf13/cobra/**/Session.vim
+# temporary
+vendor/github.com/spf13/cobra/**/.netrwhist
+vendor/github.com/spf13/cobra/**/*~
+# auto-generated tag files
+vendor/github.com/spf13/cobra/**/tags
+
+vendor/github.com/spf13/cobra/**/*.exe
+vendor/github.com/spf13/cobra/**/cobra.test
+vendor/github.com/spf13/cobra/**/bin
+
+vendor/github.com/spf13/cobra/**/.idea
+vendor/github.com/spf13/cobra/**/*.iml
+
+# flyctl launch added from vendor/github.com/spf13/pflag/.gitignore
+vendor/github.com/spf13/pflag/**/.idea/*
+
+
+# flyctl launch added from vendor/golang.org/x/net/http2/.gitignore
+vendor/golang.org/x/net/http2/**/*~
+vendor/golang.org/x/net/http2/**/h2i/h2i
+
+# flyctl launch added from vendor/golang.org/x/sys/unix/.gitignore
+vendor/golang.org/x/sys/unix/**/_obj
+vendor/golang.org/x/sys/unix/**/unix.test

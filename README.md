@@ -1,7 +1,7 @@
 # your-money
 
 ### Deployment
-Find the deployed app [here](https://buying-frenzy-dipto.fly.dev) .
+Find the deployed app [here](https://your-money.fly.dev/) .
 
 ### Run
 
