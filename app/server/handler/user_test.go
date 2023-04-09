@@ -20,20 +20,22 @@ package handler
 import (
 	"database/sql"
 	"fmt"
-	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/diptomondal007/your-money/app/common"
-	"github.com/diptomondal007/your-money/app/common/response"
-	"github.com/diptomondal007/your-money/app/server/repository"
-	"github.com/diptomondal007/your-money/app/server/usecase"
-	"github.com/jmoiron/sqlx"
-	"github.com/labstack/echo/v4"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/DATA-DOG/go-sqlmock"
+	"github.com/jmoiron/sqlx"
+	"github.com/labstack/echo/v4"
+	"github.com/stretchr/testify/assert"
+	
+	"github.com/diptomondal007/your-money/app/server/repository"
+	"github.com/diptomondal007/your-money/app/server/usecase"
+	"github.com/diptomondal007/your-money/app/utils"
+	"github.com/diptomondal007/your-money/app/utils/response"
 )
 
 func TestAddBalanceBadRequest(t *testing.T) {
@@ -84,7 +86,7 @@ func TestAddBalanceSuccessful(t *testing.T) {
 	c.SetParamNames("uid")
 	c.SetParamValues("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 
-	db, mock := common.MockSqlxDB()
+	db, mock := utils.MockSqlxDB()
 	ur := repository.NewUserRepo(db)
 
 	us := usecase.NewUserUseCase(ur)
@@ -177,7 +179,7 @@ func TestAddBalanceUnSuccessfulTransactionIDExists(t *testing.T) {
 	c.SetParamNames("uid")
 	c.SetParamValues("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 
-	db, mock := common.MockSqlxDB()
+	db, mock := utils.MockSqlxDB()
 	ur := repository.NewUserRepo(db)
 
 	us := usecase.NewUserUseCase(ur)

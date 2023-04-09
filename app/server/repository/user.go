@@ -29,8 +29,8 @@ import (
 	"github.com/doug-martin/goqu/v9/exp"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/diptomondal007/your-money/app/common/response"
 	"github.com/diptomondal007/your-money/app/server/model"
+	"github.com/diptomondal007/your-money/app/utils/response"
 )
 
 // userRepository ...

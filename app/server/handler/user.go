@@ -26,8 +26,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/diptomondal007/your-money/app/common/response"
 	"github.com/diptomondal007/your-money/app/server/usecase"
+	"github.com/diptomondal007/your-money/app/utils/response"
 )
 
 func validateAddReq(req *usecase.AddBalanceReq) error {
