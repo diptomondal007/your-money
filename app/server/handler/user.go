@@ -100,6 +100,10 @@ func (h *Handler) history(c echo.Context) error {
 		return c.JSON(response.RespondError(response.ErrBadRequest, fmt.Errorf("page size should be a valid integer")))
 	}
 
+	if pageSizeInt < 1 {
+		return c.JSON(response.RespondError(response.ErrBadRequest, fmt.Errorf("page size should be greater than 0")))
+	}
+
 	cursor := c.QueryParam("page")
 
 	ds, err := h.uc.ListHistory(userID, int64(pageSizeInt), cursor)

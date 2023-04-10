@@ -41,6 +41,10 @@ type e2eTestSuite struct {
 }
 
 func (s *e2eTestSuite) SetupSuite() {
+	if testing.Short() {
+		return
+	}
+
 	err := conn.ConnectDB()
 	s.NoError(err)
 
@@ -49,6 +53,9 @@ func (s *e2eTestSuite) SetupSuite() {
 }
 
 func TestE2ETestSuite(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping integration test")
+	}
 	suite.Run(t, &e2eTestSuite{})
 }
 

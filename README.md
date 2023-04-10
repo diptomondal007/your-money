@@ -13,7 +13,13 @@ make test
 #### Test with coverage report
 This is open a browser tab with graphical coverage report
 ```shell
-make test-coverage
+make test.coverage
+```
+
+#### E2E Test
+This will spin up docker containers and will run the e2e tests
+```shell
+make test.integration
 ```
 
 #### Server
