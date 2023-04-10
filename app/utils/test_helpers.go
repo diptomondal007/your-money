@@ -31,7 +31,3 @@ func MockSqlxDB() (*sqlx.DB, sqlmock.Sqlmock) {
 	dbp := sqlx.NewDb(db, "postgres")
 	return dbp, mock
 }
-
-func ToIntP(a int) *int {
-	return &a
-}

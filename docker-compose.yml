@@ -7,6 +7,9 @@ services:
     command:
       - serve
     depends_on:
+      postgres:
+        condition: service_healthy
+    links:
       - postgres
     environment:
       - DB_HOST=postgres_db
@@ -25,6 +28,11 @@ services:
     command: ["postgres", "-c", "log_statement=all"]
     ports:
       - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=password

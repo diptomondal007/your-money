@@ -31,7 +31,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
-	
+
 	"github.com/diptomondal007/your-money/app/server/repository"
 	"github.com/diptomondal007/your-money/app/server/usecase"
 	"github.com/diptomondal007/your-money/app/utils"
@@ -164,11 +164,11 @@ func TestAddBalanceUnSuccessfulTransactionIDExists(t *testing.T) {
 	s := echo.New()
 
 	res := `{"success":false,"message":"transaction was already processed","status_code":422}`
-	purchaseBody := `{
+	body := `{
     					"amount": 10,
 						"transaction_id": "tx_1as4ndakda"
 					}`
-	req := httptest.NewRequest(http.MethodPost, "/", strings.NewReader(purchaseBody))
+	req := httptest.NewRequest(http.MethodPost, "/", strings.NewReader(body))
 	req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
 
 	rec := httptest.NewRecorder()

@@ -6,10 +6,6 @@ github.com/DATA-DOG/go-sqlmock
 github.com/davecgh/go-spew/spew
 # github.com/diptomondal007/buying-frenzy v0.0.0-20220806164123-06dd437fc3df
 ## explicit; go 1.18
-github.com/diptomondal007/buying-frenzy/app/common
-github.com/diptomondal007/buying-frenzy/app/common/model
-github.com/diptomondal007/buying-frenzy/app/common/response
-github.com/diptomondal007/buying-frenzy/app/server/repository
 # github.com/doug-martin/goqu/v9 v9.18.0
 ## explicit; go 1.12
 github.com/doug-martin/goqu/v9
@@ -63,6 +59,8 @@ github.com/spf13/pflag
 # github.com/stretchr/testify v1.8.2
 ## explicit; go 1.13
 github.com/stretchr/testify/assert
+github.com/stretchr/testify/require
+github.com/stretchr/testify/suite
 # github.com/valyala/bytebufferpool v1.0.0
 ## explicit
 github.com/valyala/bytebufferpool
