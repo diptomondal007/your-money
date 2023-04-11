@@ -19,6 +19,7 @@ package response
 
 import (
 	"fmt"
+	"net/http"
 	"reflect"
 	"testing"
 )
@@ -35,6 +36,20 @@ func TestRespondError(t *testing.T) {
 		want1 Response
 	}{
 		// TODO: Add test cases.
+		{
+			name: "t-01",
+			args: args{
+				err:       ErrNotFound,
+				customErr: nil,
+			},
+			want: http.StatusNotFound,
+			want1: Response{
+				Success:    false,
+				Message:    "resource not found",
+				StatusCode: http.StatusNotFound,
+				Data:       nil,
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -49,7 +64,7 @@ func TestRespondError(t *testing.T) {
 	}
 }
 
-func TestWrapErr_Error(t *testing.T) {
+func TestWrapErrError(t *testing.T) {
 	type fields struct {
 		StatusCode int
 		ErrCode    string
@@ -61,6 +76,15 @@ func TestWrapErr_Error(t *testing.T) {
 		want   string
 	}{
 		// TODO: Add test cases.
+		{
+			name: "t-01",
+			fields: fields{
+				StatusCode: 0,
+				ErrCode:    "",
+				Err:        ErrNotFound,
+			},
+			want: ErrNotFound.Error(),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -76,7 +100,7 @@ func TestWrapErr_Error(t *testing.T) {
 	}
 }
 
-func TestWrapErr_Unwrap(t *testing.T) {
+func TestWrapErrUnwrap(t *testing.T) {
 	type fields struct {
 		StatusCode int
 		ErrCode    string
@@ -115,6 +139,15 @@ func TestWrapError(t *testing.T) {
 		wantErr bool
 	}{
 		// TODO: Add test cases.
+		{
+			name: "t-01",
+			args: args{
+				err:        ErrNotFound,
+				statusCode: http.StatusNotFound,
+				errCode:    "",
+			},
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

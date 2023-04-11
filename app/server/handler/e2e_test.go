@@ -60,7 +60,7 @@ func TestE2ETestSuite(t *testing.T) {
 }
 
 func (s *e2eTestSuite) TestE2EGetBalance() {
-	user, err := s.repo.CheckBalance("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
+	user, err := s.repo.GetUserInfo("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 	s.NoError(err)
 
 	response, err := s.req(echo.GET, fmt.Sprintf("http://localhost:%d/users/6d7750a1-c3f2-4765-bf8f-33bc80f3f809/balance", 8080), nil)
@@ -76,7 +76,7 @@ func (s *e2eTestSuite) TestE2EGetBalance() {
 }
 
 func (s *e2eTestSuite) TestE2EAddBalance() {
-	user, err := s.repo.CheckBalance("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
+	user, err := s.repo.GetUserInfo("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 	s.NoError(err)
 
 	amount := 10
@@ -99,7 +99,7 @@ func (s *e2eTestSuite) TestE2EAddBalance() {
 }
 
 func (s *e2eTestSuite) TestE2EAddBalanceConcurrent() {
-	user, err := s.repo.CheckBalance("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
+	user, err := s.repo.GetUserInfo("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 	s.NoError(err)
 
 	ids := []string{
@@ -130,7 +130,7 @@ func (s *e2eTestSuite) TestE2EAddBalanceConcurrent() {
 
 	wg.Wait()
 
-	u, err := s.repo.CheckBalance("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
+	u, err := s.repo.GetUserInfo("6d7750a1-c3f2-4765-bf8f-33bc80f3f809")
 	s.Equal(user.Balance+(5*10), u.Balance)
 }
 

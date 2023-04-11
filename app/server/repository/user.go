@@ -41,7 +41,7 @@ type userRepository struct {
 // UserRepository ...
 type UserRepository interface {
 	AddBalance(userID string, transactionID string, amount float64) (*model.User, error)
-	CheckBalance(userID string) (*model.User, error)
+	GetUserInfo(userID string) (*model.User, error)
 	GetHistoryList(userID string, pageSize int64, cursor string) ([]*model.Transaction, error)
 	GetHistoryCount(userID string) (int64, error)
 }
@@ -118,10 +118,10 @@ func (u userRepository) AddBalance(userID string, transactionID string, amount f
 		return nil, err
 	}
 
-	q, _, err = goqu.From(goqu.T(model.TableUsers).As("u")).
-		Select("u.*").Where(
-		goqu.Ex{"id": goqu.Op{"eq": userID}},
-	).ToSQL()
+	q, _, err = goqu.
+		From(goqu.T(model.TableUsers).As("u")).
+		Select("u.*").
+		Where(goqu.Ex{"id": goqu.Op{"eq": userID}}).ToSQL()
 	if err != nil {
 		return nil, err
 	}
@@ -138,8 +138,8 @@ func (u userRepository) AddBalance(userID string, transactionID string, amount f
 	return updatedUser, nil
 }
 
-// CheckBalance fetches balance info for a user from db
-func (u userRepository) CheckBalance(userID string) (*model.User, error) {
+// GetUserInfo fetches user info for a user from db
+func (u userRepository) GetUserInfo(userID string) (*model.User, error) {
 	user := &model.User{}
 
 	q, _, err := goqu.From(goqu.T(model.TableUsers).As("u")).

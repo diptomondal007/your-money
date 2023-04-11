@@ -18,11 +18,12 @@
 package usecase
 
 import (
+	"log"
+	"time"
+
 	"github.com/diptomondal007/your-money/app/server/model"
 	"github.com/diptomondal007/your-money/app/server/repository"
 	"github.com/diptomondal007/your-money/app/utils/response"
-	"log"
-	"time"
 )
 
 type AddBalanceReq struct {
@@ -79,7 +80,7 @@ func (u *userUseCase) AddBalance(userID string, req *AddBalanceReq) (*AddBalance
 }
 
 func (u *userUseCase) CheckBalance(userID string) (*CheckBalanceResp, error) {
-	us, err := u.repo.CheckBalance(userID)
+	us, err := u.repo.GetUserInfo(userID)
 	if err != nil {
 		return nil, err
 	}
