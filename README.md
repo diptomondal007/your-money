@@ -1,9 +1,9 @@
-# your-money
+# Your Money
 
 ### Deployment
 Find the deployed app [here](https://your-money.fly.dev/) .
 
-### Q/A
+### Q&A
 * How could the service be developed to handle thousands of concurrent users
   with hundreds of transactions each?
 
@@ -48,6 +48,7 @@ or just ignore the transaction.
 This endpoint should process the whole flow or discard all. That can be done by db `transaction` system.
 This will help to guarantee there is no inconsistency in data because of any error in any step of the whole process
 which we call `ACID`.
+  * The way I implemented this endpoint is, it adds the balance in a transaction and does a `select` query with `for update` expression to lock the selected rows for update so that no other concurrent connection doesn't read dirty row.
 
     
 
@@ -59,7 +60,7 @@ make test
 ```
 
 #### Test with coverage report
-This is open a browser tab with graphical coverage report
+This opens a browser tab with graphical coverage report
 ```shell
 make test.coverage
 ```
@@ -104,6 +105,14 @@ Method : `POST`
 Query Params:
 > N/A
 
+##### Request Body
+```json
+{
+    "amount": 20,
+    "transaction_id": "tx_1as4ndakdab"
+}
+```
+
 ##### Response - 202
 ```json
 {
@@ -138,8 +147,8 @@ Query Params:
 ```
 
 #### Balance
-Provides a list of restaurant which have items which maintains the condition low_price >= price <= high_price
-and the count of the items in the range for a restaurant is > more_than or count < less_than
+
+Provides the account balance of a user
 
 ---
 Method : `GET`
